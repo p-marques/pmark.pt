@@ -1,0 +1,34 @@
+.home-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.wip-card {
+    box-shadow: 0 2px 1px -1px rgb(0 0 0 / 20%),
+    0 1px 1px 0 rgb(0 0 0 / 14%),
+    0 1px 3px 0 rgb(0 0 0 / 12%);
+    border-radius: 4px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 10px;
+    background-color: #212121;
+}
+
+.wip-photo {
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    background-image: url('https://i.imgur.com/hjT6P3U.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.wip-text {
+    display: block;
+    max-width: 400px;
+    margin-left: 10px;
+    box-sizing: border-box;
+}
