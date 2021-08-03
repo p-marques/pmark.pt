@@ -10,7 +10,7 @@ import { NexusGame } from '../core/nexus-game';
   providedIn: 'root'
 })
 export class NexusModsService {
-  private baseUrl = '/api';
+  private baseUrl = 'https://api.nexusmods.com/v1/';
 
   httpOptions = {
     // headers: new HttpHeaders({
