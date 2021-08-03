@@ -1,24 +1,35 @@
 #footer-wrapper {
     display: flex;
-    width: 100%;
     justify-content: center;
+    box-sizing: border-box;
+    background-color: #212121;
+    overflow: hidden;
     font-size: 12px;
     line-height: 24px;
+    padding: 10px 0;
 }
 
 #footer-content {
     align-items: center;
-    display:flex;
+    display: flex;
+    flex-direction: row;
 }
 
 #footer-content a {
     line-height: 24px;
     padding: 0 2px;
     font-size: inherit;
+    font-weight: inherit;
 }
 
 #footer-content mat-icon {
     font-size: 20px;
     height: 20px;
     width: 20px;
+}
+
+@media only screen and (max-width: 600px) {
+    #footer-content {
+        font-size: 10px;
+    }
 }

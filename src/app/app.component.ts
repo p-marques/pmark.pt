@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { MatIconRegistry } from '@angular/material/icon';
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 
 const GITHUB_ICON = `
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32.58 31.77"t>
@@ -15,8 +16,23 @@ const GITHUB_ICON = `
 })
 export class AppComponent {
   email = 'pmark.pt@gmail.com';
+  isSmallScreen = false;
 
-  constructor(iconReg: MatIconRegistry, domSanitizer: DomSanitizer) {
+  constructor(iconReg: MatIconRegistry,
+    domSanitizer: DomSanitizer,
+    private breakpointObserver: BreakpointObserver) {
     iconReg.addSvgIconLiteral('github', domSanitizer.bypassSecurityTrustHtml(GITHUB_ICON));
+
+    breakpointObserver.observe([
+      Breakpoints.Large,
+      Breakpoints.Medium,
+      Breakpoints.Small
+    ]).subscribe(result => {
+      this.handleLayoutChange();
+    });
+  }
+
+  handleLayoutChange() {
+    this.isSmallScreen = this.breakpointObserver.isMatched('(max-width: 600px)');
   }
 }

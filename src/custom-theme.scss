@@ -27,6 +27,10 @@ $pmark-pt-app-theme: mat.define-dark-theme((
 ));
 
 body {
+  background: mat.get-color-from-palette($pmark-pt-app-primary, darker);
+}
+
+.router-container {
   background: mat.get-color-from-palette($pmark-pt-app-primary);
 }
 

@@ -1,17 +1,39 @@
 #toolbar {
-    height: 48px;
-    min-height: unset;
     font-size: 14px;
     font-weight: 300;
 }
 
-#toolbar span.spacer {
-    flex: 1 1 auto;
+#toolbar mat-toolbar-row {
+    height: 48px;
 }
 
-#toolbar .mat-button {
-    font-size: inherit;
+#toolbar mat-toolbar-row.top {
+    box-shadow: 0 2px 5px 0 rgb(0 0 0 / 30%);
+}
+
+#toolbar mat-toolbar-row .mat-button {
+    line-height: 24px;
     font-weight: inherit;
+    font-size: inherit;
+}
+
+#toolbar mat-toolbar-row.navigation {
+    display: flex;
+    justify-content: center;
+    height: fit-content;
+}
+
+#toolbar mat-toolbar-row.navigation .mat-button {
+    line-height: 36px;
+    border-radius: 0;
+}
+
+#toolbar mat-toolbar-row.navigation .mat-button.activeRoute {
+    background-color: #424242;
+}
+
+#toolbar span.spacer {
+    flex: 1 1 auto;
 }
 
 #toolbar .mat-icon {
@@ -29,4 +51,15 @@
     width: 100%;
     padding: 20px;
     box-sizing: border-box;
+    min-height: 400px;
+}
+
+@media only screen and (max-width: 600px) {
+    #toolbar {
+        font-size: 14px;
+    }
+
+    #toolbar mat-toolbar-row .mat-button {
+        overflow: hidden;
+    }
 }
