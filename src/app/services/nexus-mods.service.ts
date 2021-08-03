@@ -13,9 +13,9 @@ export class NexusModsService {
   private baseUrl = '/api';
 
   httpOptions = {
-    headers: new HttpHeaders({
-      'apikey': <string>process.env.NEXUS_API_KEY
-    })
+    // headers: new HttpHeaders({
+    //   'apikey': <string>process.env.NEXUS_API_KEY
+    // })
   };
 
   constructor(private http: HttpClient) { }
