@@ -6,11 +6,9 @@ import { catchError } from 'rxjs/operators';
 
 import { NexusGame } from '../core/nexus-game';
 
-const nexusKey = process.env.NEXUS_MODS_API_KEY;
-
 const httpOptions = {
   headers: new HttpHeaders({
-    'apikey': <string>nexusKey
+    'apikey': <string>process.env.NEXUS_API_KEY
   })
 };
 
