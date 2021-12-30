@@ -1,49 +1,43 @@
-#toolbar {
-    font-size: 14px;
+#main-toolbar {
+    font-size: 16px;
     font-weight: 300;
 }
 
-#toolbar mat-toolbar-row {
+#main-toolbar mat-toolbar-row.links {
+    height: 36px;
+    justify-content: end;
+}
+
+#main-toolbar mat-toolbar-row.main {
     height: 48px;
 }
 
-#toolbar mat-toolbar-row.top {
-    box-shadow: 0 2px 5px 0 rgb(0 0 0 / 30%);
-}
-
-#toolbar mat-toolbar-row .mat-button {
-    line-height: 24px;
+#main-toolbar mat-toolbar-row.main .mat-button {
+    height: 48px;
+    line-height: 46px;
+    border-radius: 0;
     font-weight: inherit;
     font-size: inherit;
+    box-sizing: border-box;
+    min-width: unset;
 }
 
-#toolbar mat-toolbar-row.navigation {
-    display: flex;
-    justify-content: center;
-    height: fit-content;
+#main-toolbar mat-toolbar-row.main .mat-button.activeRoute {
+    border-bottom: 2px solid #ddd;
 }
 
-#toolbar mat-toolbar-row.navigation .mat-button {
-    line-height: 36px;
-    border-radius: 0;
-}
-
-#toolbar mat-toolbar-row.navigation .mat-button.activeRoute {
-    background-color: #424242;
-}
-
-#toolbar span.spacer {
+#main-toolbar span.spacer {
     flex: 1 1 auto;
 }
 
-#toolbar .mat-icon {
+#main-toolbar .mat-icon {
     height: 20px;
     width: 20px;
     font-size: 20px;
     line-height: 20px;
 }
 
-#toolbar .main {
+#main-toolbar .main {
     height: 48px;
 }
 
@@ -55,11 +49,17 @@
 }
 
 @media only screen and (max-width: 600px) {
-    #toolbar {
-        font-size: 14px;
+    #main-toolbar {
+        font-size: 12px;
     }
 
-    #toolbar mat-toolbar-row .mat-button {
+    #main-toolbar mat-toolbar-row .mat-button {
         overflow: hidden;
+        padding: 0 10px;
+    }
+
+    #main-toolbar mat-toolbar-row {
+        padding-left: 8px;
+        padding-right: 0;
     }
 }

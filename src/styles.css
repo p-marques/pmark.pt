@@ -1,14 +1,37 @@
 html, body {
   height: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 body {
   width: 100%;
   margin: 0;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
-  color: #eee;
 }
 
 mat-icon.separator {
-  margin: 0 10px;
+  margin: 0 5px;
+}
+
+.mat-tooltip {
+  background-color: #212121ad;
+  text-align: center;
+  white-space: pre-line;
+  font-size: 14px;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #424242;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #212121;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }

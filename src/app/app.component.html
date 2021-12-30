@@ -1,31 +1,24 @@
-<mat-toolbar id="toolbar">
+<mat-toolbar id="main-toolbar">
+  <mat-toolbar-row class="links">
+    <button mat-icon-button [cdkCopyToClipboard]="email" color="accent"
+      [matTooltip]="emailTooltip">
+      <mat-icon>email</mat-icon>
+    </button>
+    <a mat-icon-button href="https://github.com/p-marques"
+      target="_blank" color="accent" matTooltip="Github Profile">
+      <mat-icon svgIcon="github"></mat-icon>
+    </a>
+    <a mat-icon-button href="https://www.linkedin.com/in/pedrodm/"
+      target="_blank" color="accent" matTooltip="LinkedIn Profile">
+      <mat-icon svgIcon="linkedin"></mat-icon>
+    </a>
+  </mat-toolbar-row>
 
-  <mat-toolbar-row class="top">
+  <mat-toolbar-row class="main">
     <span>Pedro Dias Marques</span>
     <mat-icon aria-hidden="false" aria-label="code icon" class="separator">code</mat-icon>
     <span>pMarK</span>
     <span class="spacer"></span>
-    <button mat-button *ngIf="!isSmallScreen" color="accent"
-      matTooltip="Copy email address to clipboard"
-      class="no-border-radius"
-      [cdkCopyToClipboard]="email">
-      <mat-icon>email</mat-icon>
-      <span style="padding-left: 5px;">{{email}}</span>
-    </button>
-    <button *ngIf="isSmallScreen" mat-icon-button
-      class="no-border-radius" [cdkCopyToClipboard]="email"
-      color="accent" matTooltip="My Github Profile">
-      <mat-icon>email</mat-icon>
-  </button>
-    <a mat-icon-button href="https://github.com/p-marques"
-      class="no-border-radius"
-      target="_blank" color="accent" matTooltip="My Github Profile">
-      <mat-icon svgIcon="github"></mat-icon>
-    </a>
-
-  </mat-toolbar-row>
-
-  <mat-toolbar-row class="navigation">
     <a routerLink="/home" routerLinkActive="activeRoute" mat-button>Home</a>
     <a routerLink="/mods" routerLinkActive="activeRoute" mat-button>Mods</a>
     <a routerLink="/about" routerLinkActive="activeRoute" mat-button>About</a>

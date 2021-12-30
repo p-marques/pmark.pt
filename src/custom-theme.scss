@@ -9,37 +9,57 @@
 // Be sure that you only ever include this mixin once!
 @include mat.core();
 
-// Define the palettes for your theme using the Material Design palettes available in palette.scss
-// (imported above). For each palette, you can optionally specify a default, lighter, and darker
-// hue. Available color palettes: https://material.io/design/color/
-$pmark-pt-app-primary: mat.define-palette(mat.$grey-palette, 800, 200, 900);
-$pmark-pt-app-accent: mat.define-palette(mat.$grey-palette, A800, A200, A900);
-$pmark-pt-app-warn: mat.define-palette(mat.$red-palette);
+$pmark-primary-palette : (
+  main: #323232,
+  lighter: #424242,
+  darker: #212121,
+  text: white,
+  contrast: (
+    main: rgba(white, 0.87),
+    lighter: rgba(white, 0.87),
+    darker: rgba(white, 0.87)
+  )
+);
+
+$pmark-accent-palette : (
+  main: #EEE,
+  lighter: #FFF,
+  darker: #CCC,
+  text: #212121,
+  contrast: (
+    main: rgba(#212121, 0.87),
+    lighter: rgba(#212121, 0.87),
+    darker: rgba(#212121, 0.87)
+  )
+);
+
+$pmark-primary: mat.define-palette($pmark-primary-palette, main, lighter, darker);
+$pmark-accent: mat.define-palette($pmark-accent-palette, main, lighter, darker);
 
 // Create the theme object. A theme consists of configurations for individual
 // theming systems such as "color" or "typography".
-$pmark-pt-app-theme: mat.define-dark-theme((
+$pmark-theme: mat.define-dark-theme((
   color: (
-    primary: $pmark-pt-app-primary,
-    accent: $pmark-pt-app-accent,
-    warn: $pmark-pt-app-warn,
+    primary: $pmark-primary,
+    accent: $pmark-accent
   )
 ));
 
 body {
-  background: mat.get-color-from-palette($pmark-pt-app-primary, darker);
-}
-
-.router-container {
-  background: mat.get-color-from-palette($pmark-pt-app-primary);
+  background: mat.get-color-from-palette($pmark-primary, main);
+  color: mat.get-color-from-palette($pmark-accent, main);
 }
 
 #main-toolbar {
-  background: mat.get-color-from-palette($pmark-pt-app-primary, 'darker');
+  background-color: mat.get-color-from-palette($pmark-primary, darker);
+}
+
+#main-toolbar mat-toolbar-row.links {
+  border-bottom: 1px solid mat.get-color-from-palette($pmark-primary, main);
 }
 
 // Include theme styles for core and each component used in your app.
 // Alternatively, you can import and @include the theme mixins for each component
 // that you are using.
-@include mat.all-component-themes($pmark-pt-app-theme);
+@include mat.all-component-themes($pmark-theme);
 
