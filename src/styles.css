@@ -35,3 +35,7 @@ mat-icon.separator {
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
 }
+
+a.yellow {
+  color: #e6e040;
+}

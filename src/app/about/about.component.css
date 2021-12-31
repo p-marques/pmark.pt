@@ -72,4 +72,8 @@
     .about-content-wrapper {
         width: 100%;
     }
+
+    .about-content-wrapper p {
+        padding-left: 10px;
+    }
 }
