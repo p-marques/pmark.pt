@@ -1,3 +1,8 @@
-<div style="display: flex; width: 100%; justify-content: center;">
-  <span>Mods section. WIP</span>
+<div class="wrapper">
+  <mat-spinner *ngIf="isWorking; else doneWorking" color="accent"></mat-spinner>
+  <ng-template #doneWorking class="objects-wrapper">
+    <div *ngFor="let mod of sortedMods" class="mod-info">
+      <h3>{{mod.name}}</h3>
+    </div>
+  </ng-template>
 </div>

@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { MatIconRegistry } from '@angular/material/icon';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
-import { MatSnackBar } from '@angular/material/snack-bar';
+import { SnackService } from './services/snack.service';
 
 const GITHUB_ICON = `
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32.58 31.77">
@@ -32,7 +32,7 @@ export class AppComponent {
 
   constructor(iconReg: MatIconRegistry, domSanitizer: DomSanitizer,
     private breakpointObserver: BreakpointObserver,
-    private snackBar: MatSnackBar) {
+    private snackService: SnackService) {
     
       iconReg.addSvgIconLiteral('github', domSanitizer.bypassSecurityTrustHtml(GITHUB_ICON));
       iconReg.addSvgIconLiteral('linkedin', domSanitizer.bypassSecurityTrustHtml(LINKEDIN_ICON));
@@ -46,11 +46,11 @@ export class AppComponent {
     });
   }
 
-  handleLayoutChange() {
+  private handleLayoutChange() {
     this.isSmallScreen = this.breakpointObserver.isMatched('(max-width: 600px)');
   }
 
-  showSnackBar(message: string, seconds: number) {
-    this.snackBar.open(message, undefined, { duration: seconds} );
+  public showSnackBar(message: string, seconds: number) {
+    this.snackService.showSnackBar(message, undefined, { duration: seconds} );
   }
 }

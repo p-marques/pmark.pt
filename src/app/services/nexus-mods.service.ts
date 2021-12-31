@@ -1,33 +1,37 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
-import { NexusGame } from '../core/nexus-game';
+import { NexusMod } from '../core/nexus-mod';
+import { NexusModsCollection } from '../core/nexus-mods-collection';
 
 @Injectable({
   providedIn: 'root'
 })
 export class NexusModsService {
-  private baseUrl = 'https://api.nexusmods.com/v1/';
+  private urlMods = '/api/mods';
+  private urlModsCollectionDb = '/assets/mod-collection-db.json';
+  
 
-  httpOptions = {
-    // headers: new HttpHeaders({
-    //   'apikey': <string>process.env.NEXUS_API_KEY
-    // })
-  };
+  constructor(private http: HttpClient) {}
 
-  constructor(private http: HttpClient) { }
+  public getModDetails(domainName: string, modId: number): Observable<NexusMod> {
+    return this.http.get<NexusMod>(`${this.urlMods}/${domainName}/${modId}`)
+      .pipe(
+        catchError(this.handleError)
+      );
+  }
 
-  public getGameDetails(gameDomainName: string): Observable<NexusGame> {
-    return this.http.get<NexusGame>(this.baseUrl + 'games/' + gameDomainName, this.httpOptions)
+  public getModCollectionDb(): Observable<NexusModsCollection[]> {
+    return this.http.get<NexusModsCollection[]>(this.urlModsCollectionDb)
       .pipe(
         catchError(this.handleError)
       );
   }
 
   private handleError(error: HttpErrorResponse) {
-    return throwError(error.message);
+    return throwError(`API request failed with code: ${error.status}`);
   }
 }

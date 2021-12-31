@@ -1,0 +1,14 @@
+[
+    {
+        "domainName": "cyberpunk2077",
+        "modIds": [2877,2863]
+    },
+    {
+        "domainName": "witcher3",
+        "modIds": [1738,1643,1203,1182,1092,982,981,967,856,582,314]
+    },
+    {
+        "domainName": "witcher2",
+        "modIds": [661,659]
+    }
+]

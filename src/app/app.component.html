@@ -1,7 +1,7 @@
 <mat-toolbar id="main-toolbar">
   <mat-toolbar-row class="links">
     <button mat-icon-button [cdkCopyToClipboard]="email" color="accent"
-      (click)="showSnackBar('Copied to clipboard', 5000)"
+      (click)="showSnackBar('Copied email to clipboard', 5000)"
       [matTooltip]="emailTooltip">
       <mat-icon>email</mat-icon>
     </button>
