@@ -5,23 +5,17 @@ import { ClipboardModule } from '@angular/cdk/clipboard';
 import { MatButtonModule } from '@angular/material/button';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatCardModule } from '@angular/material/card';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
-  imports: [
-    MatToolbarModule,
-    MatIconModule,
-    ClipboardModule,
-    MatButtonModule,
-    MatTooltipModule,
-    MatCardModule
-  ],
   exports: [
     MatToolbarModule,
     MatIconModule,
     ClipboardModule,
     MatButtonModule,
     MatTooltipModule,
-    MatCardModule
+    MatCardModule,
+    MatSnackBarModule
   ]
 })
 export class MaterialModule { }
