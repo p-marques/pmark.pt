@@ -22,6 +22,7 @@ export class ModsComponent implements OnInit {
       .subscribe((data: NexusModsCollection[]) => {
         this.modsCollections = data;
         this.getMods();
+        this.isWorking = false;
       }, (error: any) => this.snackService.showSnackBar(error, 'OK'));
   }
 
