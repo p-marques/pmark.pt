@@ -1,8 +1,150 @@
 <div class="wrapper">
-  <mat-spinner *ngIf="isWorking; else doneWorking" color="accent"></mat-spinner>
-  <ng-template #doneWorking class="objects-wrapper">
-    <div *ngFor="let mod of sortedMods" class="mod-info">
-      <h3>{{mod.name}}</h3>
+  <div class="content-wrapper">
+    <div class="bit pad20 intro">
+      <span class="title">Mods</span>
+      <p>The mods I cared to share online are listed below. Credit for the images below belong to CD Projekt RED.<br>
+      Info is being retrieved from the Nexus Mods Public API.</p>
     </div>
-  </ng-template>
+    <div class="bit">
+      <div class="game-header material-shadow" style="background-image: url(/assets/witcher3_background.jpg)">
+        <div class="game-header-overlay">
+          <img src="/assets/witcher3_logo.svg">
+        </div>
+      </div>
+      <div class="mods-section-wrapper">
+        <mat-progress-bar *ngIf="isWorking; else doneW3" mode="indeterminate" color="warn" class="material-shadow"></mat-progress-bar>
+        <ng-template #doneW3>
+          <div class="mod-container">
+            <div *ngFor="let mod of modsWitcher3" class="mod-wrapper material-shadow">
+              <div class="mod-header" [style.background-image]="'url(' + mod.picture_url + ')'">
+                <div class="mod-overlay"></div>
+              </div>
+              <div class="mod-info">
+                <div class="mod-info-bit">
+                  <span class="title">Name</span>
+                  <span>{{mod.name}}</span>
+                </div>
+                <div class="mod-info-bit">
+                  <span class="title">Description</span>
+                  <span>{{mod.summary}}</span>
+                </div>
+                <div class="mod-info-bit">
+                  <span class="title">Id</span>
+                  <span>{{mod.mod_id}}</span>
+                </div>
+                <div class="mod-info-bit">
+                  <span class="title">Version</span>
+                  <span>{{mod.version}}</span>
+                </div>
+                <div class="mod-info-bit">
+                  <span class="title">Endorsements</span>
+                  <span>{{mod.endorsement_count}}</span>
+                </div>
+                <div class="mod-info-bit">
+                  <a mat-flat-button color="warn" href="https://www.nexusmods.com/{{mod.domain_name}}/mods/{{mod.mod_id}}" target="_blank">
+                    <span>nexusmods.com</span>
+                    <mat-icon>open_in_new</mat-icon>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </ng-template>
+      </div>
+    </div>
+    <div class="bit">
+      <div class="game-header" style="background-image: url(/assets/cyberpunk2077_background.jpg)">
+        <div class="game-header-overlay">
+          <img src="/assets/cyberpunk2077_logo.svg">
+        </div>
+      </div>
+      <div class="mods-section-wrapper">
+        <mat-progress-bar *ngIf="isWorking; else doneC7" mode="indeterminate" color="warn" class="material-shadow"></mat-progress-bar>
+        <ng-template #doneC7>
+          <div class="mod-container">
+            <div *ngFor="let mod of modsCyberpunk2077" class="mod-wrapper material-shadow">
+              <div class="mod-header" [style.background-image]="'url(' + mod.picture_url + ')'">
+                <div class="mod-overlay"></div>
+              </div>
+              <div class="mod-info">
+                <div class="mod-info-bit">
+                  <span class="title">Name</span>
+                  <span>{{mod.name}}</span>
+                </div>
+                <div class="mod-info-bit">
+                  <span class="title">Description</span>
+                  <span>{{mod.summary}}</span>
+                </div>
+                <div class="mod-info-bit">
+                  <span class="title">Id</span>
+                  <span>{{mod.mod_id}}</span>
+                </div>
+                <div class="mod-info-bit">
+                  <span class="title">Version</span>
+                  <span>{{mod.version}}</span>
+                </div>
+                <div class="mod-info-bit">
+                  <span class="title">Endorsements</span>
+                  <span>{{mod.endorsement_count}}</span>
+                </div>
+                <div class="mod-info-bit">
+                  <a mat-flat-button color="warn" href="https://www.nexusmods.com/{{mod.domain_name}}/mods/{{mod.mod_id}}" target="_blank">
+                    <span>nexusmods.com</span>
+                    <mat-icon>open_in_new</mat-icon>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </ng-template>
+      </div>
+    </div>
+    <div class="bit">
+      <div class="game-header" style="background-image: url(/assets/witcher2_background.jpg)">
+        <div class="game-header-overlay">
+          <img src="/assets/witcher2_logo.png">
+        </div>
+      </div>
+      <div class="mods-section-wrapper">
+        <mat-progress-bar *ngIf="isWorking; else doneW2" mode="indeterminate" color="warn" class="material-shadow"></mat-progress-bar>
+        <ng-template #doneW2>
+          <div class="mod-container">
+            <div *ngFor="let mod of modsWitcher2" class="mod-wrapper material-shadow">
+              <div class="mod-header" [style.background-image]="'url(' + mod.picture_url + ')'">
+                <div class="mod-overlay"></div>
+              </div>
+              <div class="mod-info">
+                <div class="mod-info-bit">
+                  <span class="title">Name</span>
+                  <span>{{mod.name}}</span>
+                </div>
+                <div class="mod-info-bit">
+                  <span class="title">Description</span>
+                  <span>{{mod.summary}}</span>
+                </div>
+                <div class="mod-info-bit">
+                  <span class="title">Id</span>
+                  <span>{{mod.mod_id}}</span>
+                </div>
+                <div class="mod-info-bit">
+                  <span class="title">Version</span>
+                  <span>{{mod.version}}</span>
+                </div>
+                <div class="mod-info-bit">
+                  <span class="title">Endorsements</span>
+                  <span>{{mod.endorsement_count}}</span>
+                </div>
+                <div class="mod-info-bit">
+                  <a mat-flat-button color="warn" href="https://www.nexusmods.com/{{mod.domain_name}}/mods/{{mod.mod_id}}" target="_blank">
+                    <span>nexusmods.com</span>
+                    <mat-icon>open_in_new</mat-icon>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </ng-template>
+      </div>
+    </div>
+  </div>
 </div>

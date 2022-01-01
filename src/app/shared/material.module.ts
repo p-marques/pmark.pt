@@ -5,7 +5,7 @@ import { ClipboardModule } from '@angular/cdk/clipboard';
 import { MatButtonModule } from '@angular/material/button';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatCardModule } from '@angular/material/card';
-import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
@@ -16,7 +16,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     MatButtonModule,
     MatTooltipModule,
     MatCardModule,
-    MatProgressSpinnerModule,
+    MatProgressBarModule,
     MatSnackBarModule
   ]
 })

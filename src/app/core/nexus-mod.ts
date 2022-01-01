@@ -1,8 +1,9 @@
 export interface NexusMod {
     name: string;
     summary: string;
-    pictureUrl: string;
-    modId: number;
+    picture_url: string;
+    domain_name: string;
+    mod_id: number;
     version: string;
-    endorsementCount: number;
+    endorsement_count: number;
 }

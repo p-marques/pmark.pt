@@ -1,4 +1,22 @@
-*.ico filter=lfs diff=lfs merge=lfs -text
-*.png filter=lfs diff=lfs merge=lfs -text
-*.jfif filter=lfs diff=lfs merge=lfs -text
-*.jpg filter=lfs diff=lfs merge=lfs -text
+*                 text=auto
+
+*.html            text diff=html
+*.css             text diff=css
+*.scss            text diff=css
+*.js              text
+*.json            text
+*.ts              text
+
+*.md              text diff=markdown
+LICENSE           text
+
+package.json      text eol=lf
+package-lock.json text -diff
+.gitattributes    text
+
+*.ico             binary
+*.jpg             binary
+*.png             binary
+*.svg             text
+
+*.*ignore         text
