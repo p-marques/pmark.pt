@@ -1,9 +1,16 @@
 <div class="home-wrapper">
-    <div class="wip-card">
-        <span class="wip-text">
-            Hello!<br>
-            This is still a WIP. 
-            In the meantime you can check <a class="yellow" routerLink="/about">/about</a> to find out who I am.
-        </span>
+    <div class="status-container material-border-radius material-shadow">
+        <div class="status-content">
+            <span class="status-header material-border-radius">
+                <span>Status</span>
+            </span>
+            <div class="status">
+                <mat-progress-bar *ngIf="isFetchingStatus; else statusRdy" mode="indeterminate" color="warn"></mat-progress-bar>
+                <ng-template #statusRdy>
+                    <mat-icon *ngFor="let icon of statusIcons">{{icon}}</mat-icon>
+                    <p>{{status}}</p>
+                </ng-template>
+            </div>
+        </div>
     </div>
 </div>

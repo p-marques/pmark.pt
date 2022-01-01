@@ -14,7 +14,8 @@ mat-icon.separator {
 }
 
 .mat-tooltip {
-  background-color: #212121ad;
+  background-color: #e6e040;
+  color: #212121 !important;
   text-align: center;
   white-space: pre-line;
   font-size: 14px;
@@ -38,6 +39,10 @@ mat-icon.separator {
 
 a.yellow {
   color: #e6e040;
+}
+
+.material-border-radius {
+  border-radius: 4px;
 }
 
 .material-shadow {
