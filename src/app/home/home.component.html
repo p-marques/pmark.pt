@@ -7,7 +7,9 @@
             <div class="status">
                 <mat-progress-bar *ngIf="isFetchingStatus; else statusRdy" mode="indeterminate" color="warn"></mat-progress-bar>
                 <ng-template #statusRdy>
-                    <mat-icon *ngFor="let icon of statusIcons">{{icon}}</mat-icon>
+                    <div class="icons-wrapper">
+                        <mat-icon *ngFor="let icon of statusIcons">{{icon}}</mat-icon>
+                    </div>
                     <p>{{status}}</p>
                 </ng-template>
             </div>
