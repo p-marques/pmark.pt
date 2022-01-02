@@ -44,8 +44,91 @@
     margin: 0;
 }
 
+.projects-wrapper {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.projects-wrapper .projects-content {
+    width: 60%;
+    box-sizing: border-box;
+}
+
+.header {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+}
+
+.header p {
+    margin: 0;
+}
+
+.projects-accordion mat-expansion-panel {
+    background-color: #212121;
+    transition: background-color 0.4s ease;
+}
+
+.projects-accordion mat-expansion-panel:hover:not(.mat-expanded) {
+    background-color: #424242;
+    transition: background-color 0.4s ease;
+}
+
+.projects-accordion .project-title {
+    align-items: center;
+    flex: unset;
+}
+
+.projects-accordion .project-title .chip {
+    padding: 2px 5px;
+    color: #212121;
+    border-radius: 16px;
+    text-transform: uppercase;
+    font-size: 10px;
+    background-color: #EEE;
+}
+
+.projects-accordion .project-title .chip.backlog {
+    background-color: #bf40e6;
+}
+
+.projects-accordion .project-title .chip.maintenance {
+    background-color: #e6e040;
+}
+
+.projects-accordion .project-title .chip.archive {
+    background-color: #919191;
+}
+
+.projects-accordion .project-title .name {
+    margin-left: 10px;
+}
+
+.projects-accordion .body {
+    margin: 0;
+    white-space: pre-line;
+}
+
+.projects-accordion a.project-github {
+    margin-top: 10px;
+}
+
 @media only screen and (max-width: 1000px) {
-    .status-container {
+    .status-container, .projects-wrapper .projects-content {
         width: 100%;
+    }
+
+    .projects-accordion mat-expansion-panel-header {
+        padding-left: 8px;
+        padding-right: 8px;
+    }
+
+    .projects-accordion mat-expansion-panel-header,
+    .projects-accordion .body {
+        font-size: 12px;
     }
 }

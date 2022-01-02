@@ -1,0 +1,30 @@
+[
+    {
+        "status": "backlog",
+        "name": "EMEX.C Engine",
+        "summary": "C++ Chess Engine",
+        "body": "Ever since I developed an MCTS algorithm for a Uni project I've been interested in AIs that play board games.\n\nI want to develop one to play chess but before that I need an engine. I could just use one of the many open source ones, but I think the experience of building one, specially in C++, would be worthwhile.",
+        "github": null
+    },
+    {
+        "status": "maintenance",
+        "name": "pmark.pt",
+        "summary": "Personal website",
+        "body": "My personal website build with Angular. I use it to talk about whatever I feel like and serves as a way to catalog my work.\n\nUses a serverless API powered by Azure Functions. Retrieves data from the Nexus Mods Public API for information about my mods.",
+        "github": "https://github.com/p-marques/pmark.pt"
+    },
+    {
+        "status": "maintenance",
+        "name": "emexmachina.com",
+        "summary": "Uni project website",
+        "body": "Fake studio website.\nI came up with a fake studio name for a Uni project. The website was just for fun.",
+        "github": "https://github.com/p-marques/emexmachina.com"
+    },
+    {
+        "status": "archive",
+        "name": "lemis.pt",
+        "summary": "Company website",
+        "body": "Company web presence website for a former employer.\nLast time I checked it was offline and they don't have any other web presence. Don't really know what's going on there.",
+        "github": "https://github.com/p-marques/lemis.pt"
+    }
+]

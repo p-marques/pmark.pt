@@ -48,3 +48,21 @@ a.yellow {
 .material-shadow {
   box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
 }
+
+mat-accordion mat-expansion-panel-header > * {
+  align-items: center;
+}
+
+span.section-title {
+  color: #b5b5b5;
+  text-transform: uppercase;
+  margin: 0;
+  font-size: 14px;
+  line-height: normal;
+}
+
+@media only screen and (max-width: 1000px) {
+  .mat-typography {
+    font-size: 12px;
+  }
+}

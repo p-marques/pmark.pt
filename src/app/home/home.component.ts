@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
+import { Project } from '../core/project';
 import { PersonalStatusService } from '../services/personal-status.service';
+import { ProjectsService } from '../services/projects.service';
+import { SnackService } from '../services/snack.service';
 
 @Component({
   selector: 'app-home',
@@ -9,16 +12,21 @@ import { PersonalStatusService } from '../services/personal-status.service';
 })
 export class HomeComponent implements OnInit {
   isFetchingStatus: boolean = true;
+  isFetchingProjects: boolean = true;
   status: string = "Busy thinking about something.";
   statusIcons: string[] = [];
+  projectsList: Project[] = [];
 
   constructor(private titleService: Title,
-    private statusService: PersonalStatusService) {}
+    private statusService: PersonalStatusService,
+    private projectsService: ProjectsService,
+    private snackService: SnackService) {}
 
   public ngOnInit() {
     this.titleService.setTitle("Pedro Dias Marques <> pMarK");
 
     this.getStatus();
+    this.getProjects();
   }
 
   private getStatus() {
@@ -30,6 +38,15 @@ export class HomeComponent implements OnInit {
 
         this.isFetchingStatus = false;
       }, (error: any) => this.isFetchingStatus = false
+    );
+  }
+
+  private getProjects() {
+    this.projectsService.getProjectsList().subscribe(
+      (data: Project[]) => {
+        this.projectsList = data;
+        this.isFetchingProjects = false;
+      }, (error: any) => this.snackService.showSnackBar(error, 'OK')
     );
   }
 

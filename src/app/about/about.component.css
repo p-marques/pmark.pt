@@ -51,12 +51,6 @@
     padding: 20px;
 }
 
-.about-content span.title {
-    color: #b5b5b5;
-    text-transform: uppercase;
-    padding-bottom: 10px;
-}
-
 @media only screen and (max-width: 1000px) {
 
     .header {

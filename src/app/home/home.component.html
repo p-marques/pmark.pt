@@ -15,4 +15,35 @@
             </div>
         </div>
     </div>
+
+    <div class="projects-wrapper">
+        <div class="projects-content">
+            <div class="header">
+                <span class="section-title">Projects</span>
+                <p>(Status) Name - Short description</p>
+            </div>
+            <mat-progress-bar *ngIf="isFetchingProjects; else projectsRdy" mode="indeterminate" color="warn"></mat-progress-bar>
+            <ng-template #projectsRdy>
+                <mat-accordion class="projects-accordion">
+                    <mat-expansion-panel *ngFor="let project of projectsList">
+                        <mat-expansion-panel-header>
+                            <mat-panel-title class="project-title">
+                                <span class="chip {{project.status}}">{{project.status}}</span>
+                                <span class="name">{{project.name}}</span>
+                            </mat-panel-title>
+                            <mat-panel-description>
+                                <span>{{project.summary}}</span>
+                            </mat-panel-description>
+                        </mat-expansion-panel-header>
+                        <p class="body">{{project.body}}</p>
+                        <a mat-icon-button href="{{project.github}}" class="project-github" *ngIf="project.github"
+                            target="_blank" color="accent" matTooltip="Repository" matTooltipPosition="after">
+                            <mat-icon svgIcon="github"></mat-icon>
+                        </a>
+                    </mat-expansion-panel>
+                </mat-accordion>
+            </ng-template>
+        </div>
+    </div>
+
 </div>

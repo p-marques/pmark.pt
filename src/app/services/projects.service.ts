@@ -1,25 +1,26 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 
-import { throwError } from 'rxjs';
+import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
+import { Project } from '../core/project';
 
 @Injectable({
   providedIn: 'root'
 })
-export class PersonalStatusService {
-  private url = '/api/status';
+export class ProjectsService {
+  private url = '/assets/data/projects-db.json';
 
   constructor(private http: HttpClient) {}
 
-  public getPersonalStatus() {
-    return this.http.get(this.url, { responseType: "text" })
+  public getProjectsList(): Observable<Project[]> {
+    return this.http.get<Project[]>(this.url)
       .pipe(
         catchError(this.handleError)
       );
   }
 
   private handleError(error: HttpErrorResponse) {
-    return throwError(`API request failed with code: ${error.status}`);
+    return throwError(`Failed to load projects list. Try again later`);
   }
 }
