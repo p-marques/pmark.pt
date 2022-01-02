@@ -2,4 +2,4 @@
 
 # pmark.pt
 
-https://pmark.pt built with Angular 12.1.4
+https://pmark.pt built with Angular 13.x
