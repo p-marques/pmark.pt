@@ -61,6 +61,14 @@ span.section-title {
   line-height: normal;
 }
 
+.projects-accordion .mat-expansion-panel-content {
+  border-top: 1px solid #424242;
+}
+
+.projects-accordion .mat-expansion-panel-content .mat-expansion-panel-body {
+  padding: 16px;
+}
+
 @media only screen and (max-width: 1000px) {
   .mat-typography {
     font-size: 12px;

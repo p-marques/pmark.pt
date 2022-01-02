@@ -1,14 +1,20 @@
+:host {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .home-wrapper {
     display: flex;
     flex-direction: column;
     box-sizing: border-box;
-    width: 100%;
-    align-items: center;
+    width: 60%;
 }
 
 .status-container {
     background-color: #212121;
-    width: 30%;
+    width: 60%;
     box-sizing: border-box;
 }
 
@@ -19,12 +25,11 @@
 }
 
 .status-content {
-    width: 100%;
     flex-direction: row;
     align-items: stretch;
 }
 
-.status-header {
+.section-header {
     background-color: #EEE;
     color: #212121;
     padding: 10px;
@@ -45,25 +50,27 @@
     margin: 0;
 }
 
-.projects-wrapper {
-    margin-top: 30px;
+.projects-wrapper, .projects-content {
     display: flex;
     flex-direction: column;
-    align-items: center;
     width: 100%;
+    box-sizing: border-box;
+}
+
+.projects-wrapper {
+    margin-top: 50px;
 }
 
 .projects-wrapper .projects-content {
-    width: 60%;
-    box-sizing: border-box;
+    width: 100%;
 }
 
 .header {
     display: flex;
     flex-direction: column;
-    width: 100%;
     box-sizing: border-box;
     margin-bottom: 10px;
+    align-self: flex-start;
 }
 
 .header p {
@@ -85,7 +92,7 @@
     flex: unset;
 }
 
-.projects-accordion .project-title .chip {
+.projects-accordion .chip {
     padding: 2px 5px;
     color: #212121;
     border-radius: 16px;
@@ -94,15 +101,15 @@
     background-color: #EEE;
 }
 
-.projects-accordion .project-title .chip.backlog {
+.projects-accordion .chip.backlog {
     background-color: #bf40e6;
 }
 
-.projects-accordion .project-title .chip.maintenance {
+.projects-accordion .chip.maintenance {
     background-color: #e6e040;
 }
 
-.projects-accordion .project-title .chip.archive {
+.projects-accordion .chip.archive {
     background-color: #919191;
 }
 
@@ -111,6 +118,11 @@
 }
 
 .projects-accordion .body {
+    display: flex;
+    flex-direction: column;
+}
+
+.projects-accordion .body-text {
     margin: 0;
     white-space: pre-line;
 }
@@ -120,7 +132,7 @@
 }
 
 @media only screen and (max-width: 1000px) {
-    .status-container, .projects-wrapper .projects-content {
+    .home-wrapper, .status-container {
         width: 100%;
     }
 
@@ -130,7 +142,7 @@
     }
 
     .projects-accordion mat-expansion-panel-header,
-    .projects-accordion .body {
+    .projects-accordion .body-text {
         font-size: 12px;
     }
 }

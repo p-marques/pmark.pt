@@ -1,7 +1,7 @@
 <div class="home-wrapper">
     <div class="status-container material-border-radius material-shadow">
         <div class="status-content">
-            <span class="status-header material-border-radius">
+            <span class="section-header material-border-radius">
                 <span>Status</span>
             </span>
             <div class="status">
@@ -18,9 +18,8 @@
 
     <div class="projects-wrapper">
         <div class="projects-content">
-            <div class="header">
-                <span class="section-title">Projects</span>
-                <p>(Status) Name - Short description</p>
+            <div class="header section-header material-border-radius material-shadow">
+                <span>Projects</span>
             </div>
             <mat-progress-bar *ngIf="isFetchingProjects; else projectsRdy" mode="indeterminate" color="warn"></mat-progress-bar>
             <ng-template #projectsRdy>
@@ -35,11 +34,13 @@
                                 <span>{{project.summary}}</span>
                             </mat-panel-description>
                         </mat-expansion-panel-header>
-                        <p class="body">{{project.body}}</p>
-                        <a mat-icon-button href="{{project.github}}" class="project-github" *ngIf="project.github"
-                            target="_blank" color="accent" matTooltip="Repository" matTooltipPosition="after">
-                            <mat-icon svgIcon="github"></mat-icon>
-                        </a>
+                        <div class="body">
+                            <p class="body-text">{{project.body}}</p>
+                            <a mat-icon-button href="{{project.github}}" class="project-github" *ngIf="project.github"
+                                target="_blank" color="accent" matTooltip="Repository" matTooltipPosition="after">
+                                <mat-icon svgIcon="github"></mat-icon>
+                            </a>
+                        </div>
                     </mat-expansion-panel>
                 </mat-accordion>
             </ng-template>
