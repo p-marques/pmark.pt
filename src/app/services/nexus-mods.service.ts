@@ -12,7 +12,7 @@ import { NexusModsCollection } from '../core/nexus-mods-collection';
 })
 export class NexusModsService {
   private urlMods = '/api/mods';
-  private urlModsCollectionDb = '/assets/mod-collection-db.json';
+  private urlModsCollectionDb = '/assets/data/mod-collection-db.json';
   
 
   constructor(private http: HttpClient) {}
