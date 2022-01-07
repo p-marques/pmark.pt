@@ -3,6 +3,10 @@ import { DomSanitizer } from '@angular/platform-browser';
 import { MatIconRegistry } from '@angular/material/icon';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { SnackService } from './services/snack.service';
+import { NavigationEnd, Router } from '@angular/router';
+import { OnInit } from '@angular/core';
+
+declare let gtag: Function;
 
 const GITHUB_ICON = `
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32.58 31.77">
@@ -25,25 +29,30 @@ const LINKEDIN_ICON =  `
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   email = 'pmark.pt@gmail.com';
   emailTooltip = 'pmark.pt@gmail.com\nClick to copy'
   isSmallScreen = false;
 
   constructor(iconReg: MatIconRegistry, domSanitizer: DomSanitizer,
     private breakpointObserver: BreakpointObserver,
-    private snackService: SnackService) {
-    
+    private snackService: SnackService,
+    private router: Router) {
+
       iconReg.addSvgIconLiteral('github', domSanitizer.bypassSecurityTrustHtml(GITHUB_ICON));
       iconReg.addSvgIconLiteral('linkedin', domSanitizer.bypassSecurityTrustHtml(LINKEDIN_ICON));
 
-    breakpointObserver.observe([
-      Breakpoints.Large,
-      Breakpoints.Medium,
-      Breakpoints.Small
-    ]).subscribe(result => {
-      this.handleLayoutChange();
-    });
+      breakpointObserver.observe([
+        Breakpoints.Large,
+        Breakpoints.Medium,
+        Breakpoints.Small
+      ]).subscribe(result => {
+        this.handleLayoutChange();
+      });
+  }
+
+  ngOnInit() {
+    this.setupAnalytics();
   }
 
   private handleLayoutChange() {
@@ -52,5 +61,13 @@ export class AppComponent {
 
   public showSnackBar(message: string, seconds: number) {
     this.snackService.showSnackBar(message, undefined, { duration: seconds} );
+  }
+
+  private setupAnalytics() {
+    this.router.events.subscribe(event => {
+      if (event instanceof NavigationEnd) {
+        gtag('config', 'G-V1KFSE9JPL', { 'page_path': event.urlAfterRedirects });
+      }
+    });
   }
 }
