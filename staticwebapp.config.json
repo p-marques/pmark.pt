@@ -5,5 +5,8 @@
             "*.{jpg,gif,png,jfif}",
             "assets/*"
         ]
+    },
+    "platform": {
+        "apiRuntime": "node:16"
     }
 }
