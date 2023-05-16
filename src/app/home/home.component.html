@@ -1,50 +1,10 @@
 <div class="home-wrapper">
-    <div class="status-container material-border-radius material-shadow">
-        <div class="status-content">
-            <span class="section-header material-border-radius">
-                <span>Status</span>
-            </span>
-            <div class="status">
-                <mat-progress-bar *ngIf="isFetchingStatus; else statusRdy" mode="indeterminate" color="warn"></mat-progress-bar>
-                <ng-template #statusRdy>
-                    <div class="icons-wrapper">
-                        <mat-icon *ngFor="let icon of statusIcons">{{icon}}</mat-icon>
-                    </div>
-                    <p>{{status}}</p>
-                </ng-template>
-            </div>
-        </div>
+  <div class="intro">
+    <div>Hi, I'm</div>
+    <div>
+      <div class="name" [style.color]="colorService.getCurrentColor()">Pedro Dias Marques.</div>
+      <div class="code">I <span>{{getCurrentLine()}}</span>.</div>
     </div>
-
-    <div class="projects-wrapper">
-        <div class="projects-content">
-            <div class="header section-header material-border-radius material-shadow">
-                <span>Projects</span>
-            </div>
-            <mat-progress-bar *ngIf="isFetchingProjects; else projectsRdy" mode="indeterminate" color="warn"></mat-progress-bar>
-            <ng-template #projectsRdy>
-                <mat-accordion class="projects-accordion">
-                    <mat-expansion-panel *ngFor="let project of projectsList">
-                        <mat-expansion-panel-header>
-                            <mat-panel-title class="project-title">
-                                <span class="chip {{project.status}}">{{project.status}}</span>
-                                <span class="name">{{project.name}}</span>
-                            </mat-panel-title>
-                            <mat-panel-description>
-                                <span>{{project.summary}}</span>
-                            </mat-panel-description>
-                        </mat-expansion-panel-header>
-                        <div class="body">
-                            <p class="body-text">{{project.body}}</p>
-                            <a mat-icon-button href="{{project.github}}" class="project-github" *ngIf="project.github"
-                                target="_blank" color="accent" matTooltip="Repository" matTooltipPosition="after">
-                                <mat-icon svgIcon="github"></mat-icon>
-                            </a>
-                        </div>
-                    </mat-expansion-panel>
-                </mat-accordion>
-            </ng-template>
-        </div>
-    </div>
-
+  </div>
+  <div class="division" [style.background-color]="colorService.getCurrentColor()"></div>
 </div>

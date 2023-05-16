@@ -19,9 +19,9 @@
 @include mat.legacy-core();
 
 $pmark-primary-palette : (
-  main: #323232,
-  lighter: #424242,
-  darker: #212121,
+  main: #212121,
+  lighter: #323232,
+  darker: #121212,
   text: white,
   contrast: (
     main: rgba(white, 0.87),
@@ -73,12 +73,9 @@ body {
   color: mat.get-color-from-palette($pmark-accent, main);
 }
 
-#main-toolbar {
-  background-color: mat.get-color-from-palette($pmark-primary, darker);
-}
-
-#main-toolbar mat-toolbar-row.links {
-  border-bottom: 1px solid mat.get-color-from-palette($pmark-primary, main);
+body svg text,
+body svg .background {
+  fill: mat.get-color-from-palette($pmark-primary, main);
 }
 
 // Include theme styles for core and each component used in your app.
