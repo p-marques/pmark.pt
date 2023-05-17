@@ -9,30 +9,36 @@ body {
   margin: 0;
 }
 
-mat-icon.separator {
-  margin: 0 5px;
-}
-
-.mat-tooltip {
-  background-color: #e6e040;
-  color: #212121 !important;
-  text-align: center;
-  white-space: pre-line;
-  font-size: 14px;
-}
-
 ::-webkit-scrollbar {
   width: 10px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #424242;
+  background: #212121;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #212121;
+  background: #424242;
 }
 
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
+}
+
+.mat-typography {
+  line-height: normal;
+}
+
+a {
+  text-decoration: none;
+}
+
+button:hover,
+a.mdc-button:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.pmark-snack {
+  background-color: #fff;
+  color: #212121;
 }

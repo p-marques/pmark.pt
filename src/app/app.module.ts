@@ -10,7 +10,6 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { HomeComponent } from './home/home.component';
-import { AboutComponent } from './about/about.component';
 import { ModsComponent } from './mods/mods.component';
 
 
@@ -20,7 +19,6 @@ import { ModsComponent } from './mods/mods.component';
     HeaderComponent,
     FooterComponent,
     HomeComponent,
-    AboutComponent,
     ModsComponent
   ],
   imports: [

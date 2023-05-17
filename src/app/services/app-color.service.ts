@@ -13,6 +13,7 @@ export class AppColorService {
     '#FF4B68',
     '#FCEE0A',
     '#C69749',
+    '#CCCCCC',
   ];
   private currentIndex: number = Math.floor(Math.random() * this.colors.length);
 

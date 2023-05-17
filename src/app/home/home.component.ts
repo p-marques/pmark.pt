@@ -3,29 +3,27 @@ import { Title } from '@angular/platform-browser';
 import { interval, Subscription } from 'rxjs';
 
 import { AppColorService } from '../services/app-color.service';
+import { SnackService } from '../services/snack.service';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css'],
+  styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit, OnDestroy {
   private introLines = [
-    'develop web apps',
-    'develop desktop apps',
-    'love Angular',
-    'love video games',
-    'have worked with .Net Core since rc1',
-    'love modding games',
+    'I build web apps.',
+    'I\'m a big fan of Angular.',
+    'I love video games, and modding them.',
+    'I also like to develop desktop apps, using .Net or Python.',
   ];
-  private currentIndex: number = Math.floor(
-    Math.random() * this.introLines.length
-  );
+  private currentIndex: number = 0;
   private subscription: Subscription;
 
   constructor(
     private titleService: Title,
-    public colorService: AppColorService
+    public colorService: AppColorService,
+    public snackService: SnackService
   ) {
     this.subscription = interval(5000).subscribe((_) => this.moveToNextIndex());
   }

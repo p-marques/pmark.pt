@@ -17,13 +17,14 @@
   flex-direction: row;
   gap: 10px;
   justify-content: center;
+  margin-top: 20px;
 }
 
 .container .color-pick {
-  width: 25px;
-  height: 25px;
-  border-radius: 50%;
+  width: 15px;
+  height: 20px;
   cursor: pointer;
+  transform: skewX(-20deg);
 }
 
 @media only screen and (max-width: 600px) {
