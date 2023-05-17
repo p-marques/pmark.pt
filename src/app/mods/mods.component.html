@@ -42,7 +42,7 @@
                   <span>{{mod.endorsement_count}}</span>
                 </div>
                 <div class="mod-info-bit">
-                  <a mat-flat-button color="warn" href="https://www.nexusmods.com/{{mod.domain_name}}/mods/{{mod.mod_id}}" target="_blank">
+                  <a mat-flat-button [style.background-color]="colorService.getCurrentColor()" href="https://www.nexusmods.com/{{mod.domain_name}}/mods/{{mod.mod_id}}" target="_blank">
                     <span>nexusmods.com</span>
                     <mat-icon>open_in_new</mat-icon>
                   </a>
