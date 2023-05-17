@@ -4,6 +4,7 @@ import { NexusMod } from '../core/nexus-mod';
 import { NexusModsCollection } from '../core/nexus-mods-collection';
 import { NexusModsService } from '../services/nexus-mods.service';
 import { SnackService } from '../services/snack.service';
+import { AppColorService } from '../services/app-color.service';
 
 @Component({
   selector: 'app-mods',
@@ -17,10 +18,11 @@ export class ModsComponent implements OnInit {
   modsWitcher2: NexusMod[] = [];
   modsCyberpunk2077: NexusMod[] = [];
 
-  constructor(private nexusModsService: NexusModsService, 
+  constructor(private nexusModsService: NexusModsService,
     private snackService: SnackService,
-    private titleService: Title) {}
-  
+    private titleService: Title,
+    public colorService: AppColorService) { }
+
   ngOnInit(): void {
     this.nexusModsService.getModCollectionDb()
       .subscribe((data: NexusModsCollection[]) => {
@@ -34,7 +36,7 @@ export class ModsComponent implements OnInit {
   private getMods() {
     for (let i = 0; i < this.modsCollections.length; i++) {
       const modCollection = this.modsCollections[i];
-      
+
       const modsArray = this.getModsByDomainName(modCollection.domainName);
 
       if (modsArray == undefined) {
@@ -47,7 +49,7 @@ export class ModsComponent implements OnInit {
 
       for (let j = 0; j < modCollection.modIds.length; j++) {
         const modId = modCollection.modIds[j];
-        
+
         this.nexusModsService.getModDetails(modCollection.domainName, modId)
           .subscribe((data: NexusMod) => {
             modsArray.push(data);
