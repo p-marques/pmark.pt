@@ -109,6 +109,10 @@ p {
   padding: 0;
 }
 
+.mod-info-bit a {
+  transition: background-color 1s ease-in;
+}
+
 a mat-icon {
   padding-left: 5px;
 }
