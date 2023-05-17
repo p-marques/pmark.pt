@@ -1,35 +1,9 @@
-<mat-toolbar id="main-toolbar">
-  <mat-toolbar-row class="links">
-    <button mat-icon-button [cdkCopyToClipboard]="email" color="accent"
-      (click)="showSnackBar('Copied email to clipboard', 5000)"
-      [matTooltip]="emailTooltip">
-      <mat-icon>email</mat-icon>
-    </button>
-    <a mat-icon-button href="https://github.com/p-marques"
-      target="_blank" color="accent" matTooltip="Github Profile">
-      <mat-icon svgIcon="github"></mat-icon>
-    </a>
-    <a mat-icon-button href="https://twitter.com/At_pMarK"
-      target="_blank" color="accent" matTooltip="Twitter Profile">
-      <mat-icon svgIcon="twitter"></mat-icon>
-    </a>
-    <a mat-icon-button href="https://www.linkedin.com/in/pedrodm/"
-      target="_blank" color="accent" matTooltip="LinkedIn Profile">
-      <mat-icon svgIcon="linkedin"></mat-icon>
-    </a>
-  </mat-toolbar-row>
+<app-header></app-header>
 
-  <mat-toolbar-row class="main">
-    <span>Pedro Dias Marques</span>
-    <mat-icon aria-hidden="false" aria-label="code icon" class="separator">code</mat-icon>
-    <span>pMarK</span>
-    <span class="spacer"></span>
-    <a routerLink="/home" routerLinkActive="activeRoute" mat-button>Home</a>
-    <a routerLink="/mods" routerLinkActive="activeRoute" mat-button>Mods</a>
-    <a routerLink="/about" routerLinkActive="activeRoute" mat-button>About</a>
-  </mat-toolbar-row>
-
-</mat-toolbar>
+<div class="menu">
+  <a routerLink="/home" routerLinkActive="activeRoute" mat-flat-button color="accent">Home</a>
+  <a routerLink="/mods" routerLinkActive="activeRoute" mat-flat-button color="accent">Mods</a>
+</div>
 
 <div class="router-container">
   <router-outlet></router-outlet>

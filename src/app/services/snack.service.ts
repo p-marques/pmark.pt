@@ -1,14 +1,22 @@
 import { Injectable } from '@angular/core';
-import { MatLegacySnackBar as MatSnackBar, MatLegacySnackBarConfig as MatSnackBarConfig } from '@angular/material/legacy-snack-bar';
+import { MatSnackBar, MatSnackBarConfig } from '@angular/material/snack-bar';
 
 @Injectable({
   providedIn: 'root',
 })
 export class SnackService {
+  constructor(private snackBar: MatSnackBar) {}
 
-    constructor(private snackBar: MatSnackBar) {}
-
-    public showSnackBar(message: string, action?: string | undefined, options?: MatSnackBarConfig<any> | undefined) {
-        this.snackBar.open(message, action, options);
-    }
+  public showSnackBar(
+    message: string,
+    action?: string | undefined,
+    duration: number = 5000
+  ) {
+    this.snackBar.open(message, action, {
+      duration: duration,
+      horizontalPosition: 'end',
+      verticalPosition: 'top',
+      panelClass: 'pmark-snack'
+    });
+  }
 }
