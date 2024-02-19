@@ -52,7 +52,7 @@
   }
 
   100% {
-    transform: none;
+    transform: translateY(10px);
     opacity: 1;
   }
 }
@@ -65,6 +65,7 @@
   text-align: end;
   font-weight: 500;
   animation: code-mover 5s infinite;
+  animation-direction: reverse;
 }
 
 .home-wrapper .division {

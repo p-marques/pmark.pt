@@ -64,18 +64,16 @@ export class ModsComponent implements OnInit {
   }
 
   private getModsByDomainName(domainName: string) : NexusMod[] | undefined {
-    if (domainName == "witcher3") {
-      return this.modsWitcher3;
+    switch(domainName) {
+      case "witcher3":
+        return this.modsWitcher3;
+      case "cyberpunk2077":
+        return this.modsCyberpunk2077;
+      case "witcher2":
+        return this.modsWitcher2;
     }
-    else if (domainName == "cyberpunk2077") {
-      return this.modsCyberpunk2077;
-    }
-    else if (domainName == "witcher2") {
-      return this.modsWitcher2;
-    }
-    else {
-      return;
-    }
+
+    return;
   }
 
   private finishLoading() {
