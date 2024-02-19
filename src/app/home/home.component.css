@@ -46,14 +46,14 @@
     opacity: 0;
   }
 
-  30% {
+  50% {
     transform: none;
     opacity: 1;
   }
 
   100% {
-    transform: translateY(10px);
-    opacity: 1;
+    transform: translateY(8px);
+    opacity: 0;
   }
 }
 
@@ -65,7 +65,6 @@
   text-align: end;
   font-weight: 500;
   animation: code-mover 5s infinite;
-  animation-direction: reverse;
 }
 
 .home-wrapper .division {
