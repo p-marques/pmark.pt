@@ -1,0 +1,44 @@
+:host {
+  height: 100%;
+}
+
+.intro-content {
+  flex: 1;
+}
+
+.intro-content h1 {
+  font-weight: 900;
+  font-size: 7rem;
+  text-align: left;
+  width: min-content;
+  margin-left: 3rem;
+}
+
+img.photo {
+  margin-right: 3rem;
+  width: 300px;
+  height: 300px;
+  border-radius: var(--border-radius-base);
+}
+
+.current-tech {
+  padding: 3rem;
+  gap: 3rem;
+}
+
+.q-a {
+  gap: 0.5rem;
+}
+
+.q-a p {
+  text-align: end;
+}
+
+.q-a p:first-child {
+  font-size: 2rem;
+  font-weight: 300;
+}
+
+.q-a p:last-child {
+  font-size: 2.5rem;
+}
