@@ -5,6 +5,7 @@
   --background-primary-darker: #181818;
 
   --text-primary: #f2f2f2;
+  --text-primary-darker: #999;
 
   --header-height: 120px;
 
@@ -49,6 +50,10 @@ a {
   cursor: pointer;
 }
 
+.underline {
+ text-decoration: underline;
+}
+
 .w-100 {
   width: 100%;
 }
@@ -83,4 +88,29 @@ a {
 
 .justify-content-end {
   justify-content: flex-end;
+}
+
+.shadow-standard {
+  box-shadow: 0px 1px 2px 0px rgb(0 0 0 / 30%), 0px 1px 3px 1px rgb(0 0 0 / 15%);
+}
+
+.font-weight-700 {
+  font-weight: 700;
+}
+
+.disabled {
+  pointer-events: none;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: var(--border-radius-base);
 }

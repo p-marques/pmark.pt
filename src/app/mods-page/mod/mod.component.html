@@ -1,1 +1,55 @@
-<p>{{ domainName() }} / {{ modId() }}</p>
+<article
+  class="mod-container shadow-standard"
+  [class.loading]="modQuery.isLoading()"
+>
+  <div
+    class="mod-header"
+    [class.skeleton-box]="isLoading()"
+    [style.background-image]="'url(' + mod()?.picture_url + ')'"
+  >
+    <div class="mod-overlay"></div>
+  </div>
+  <div class="mod-details-container d-flex flex-column">
+    <div class="mod-details-bit d-flex flex-column">
+      <div class="section-title font-weight-700">Name</div>
+      <div [class.skeleton-box]="isLoading()">{{ mod()?.name }}</div>
+    </div>
+    <div class="mod-details-bit d-flex flex-column">
+      <div class="section-title font-weight-700">Game</div>
+      @if (isLoading()) {
+      <div class="skeleton-box"></div>
+      } @else {
+      <div>{{ gameName() }}</div>
+      }
+    </div>
+    <div class="mod-details-bit d-flex flex-column">
+      <div class="section-title font-weight-700">Description</div>
+      <div [class.skeleton-box]="isLoading()">{{ mod()?.summary }}</div>
+    </div>
+    <div class="mod-details-bit d-flex flex-column">
+      <div class="section-title font-weight-700">Latest version</div>
+      <div [class.skeleton-box]="isLoading()">{{ mod()?.version }}</div>
+    </div>
+    <div class="mod-details-bit d-flex flex-column">
+      <div class="section-title font-weight-700">Endorsements</div>
+      <div [class.skeleton-box]="isLoading()">
+        {{ mod()?.endorsement_count }}
+      </div>
+    </div>
+    <div class="mod-details-bit d-flex flex-column">
+      <div class="section-title font-weight-700">Link</div>
+      @if (isLoading()) {
+      <div class="skeleton-box"></div>
+      } @else {
+      <a
+        class="underline"
+        target="_blank"
+        href="https://www.nexusmods.com/{{ mod()?.domain_name }}/mods/{{
+          mod()?.mod_id
+        }}"
+        >nexusmods.com</a
+      >
+      }
+    </div>
+  </div>
+</article>

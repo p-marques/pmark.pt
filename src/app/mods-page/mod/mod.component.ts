@@ -1,6 +1,7 @@
-import { Component, inject, input } from '@angular/core';
+import { Component, inject, input, computed } from '@angular/core';
 import { ModsService } from '../mods.service';
 import { injectQuery } from '@tanstack/angular-query-experimental';
+import { NexusMod } from '../../core/nexus-mods';
 
 @Component({
   selector: 'app-mod',
@@ -20,4 +21,20 @@ export class ModComponent {
     queryFn: () =>
       this.modsService.getModDetails(this.domainName(), this.modId()),
   }));
+
+  mod = computed<NexusMod | undefined>(() => this.modQuery.data());
+  isLoading = computed<boolean>(() => this.modQuery.isLoading());
+
+  gameName = computed<string>(() => {
+    switch (this.domainName()) {
+      case 'cyberpunk2077':
+        return 'Cyberpunk 2077';
+      case 'witcher3':
+        return 'The Witcher 3';
+      case 'witcher2':
+        return 'The Witcher 2';
+    }
+
+    return '';
+  });
 }

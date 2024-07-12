@@ -17,3 +17,10 @@ main {
   background-color: var(--background-primary-darker);
   border-radius: var(--border-radius-base);
 }
+
+@media only screen and (max-width: 1000px) {
+  main,
+  .content-wrapper {
+    padding: 1rem;
+  }
+}
