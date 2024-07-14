@@ -8,7 +8,7 @@ import { NexusMod } from '../core/nexus-mods';
   providedIn: 'root',
 })
 export class ModsService {
-  private urlMods = 'http://localhost:7071/api/mods';
+  private urlMods = '/api/mods';
   private urlModsCollectionDb = '/assets/data/mod-collection-db.json';
   private http = inject(HttpClient);
 
