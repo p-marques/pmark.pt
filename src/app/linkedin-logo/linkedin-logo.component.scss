@@ -7,3 +7,10 @@ svg {
   height: 50px;
   fill: var(--text-primary);
 }
+
+@media only screen and (max-width: 599.98px) {
+  svg {
+    width: 30px;
+    height: 30px;
+  }
+}
