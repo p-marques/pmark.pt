@@ -1,13 +1,13 @@
-import { Component, OnInit } from '@angular/core';
-import { AppColorService } from '../services/app-color.service';
+import { Component } from '@angular/core';
+import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-header',
+  standalone: true,
+  imports: [RouterLink, RouterLinkActive],
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.css'],
+  styleUrl: './header.component.scss'
 })
 export class HeaderComponent {
-  public fillColor: string | undefined;
 
-  constructor(public colorService: AppColorService) {}
 }

@@ -1,4 +1,4 @@
 export interface NexusModsCollection {
-    domainName: string;
-    modIds: number[];
+  domainName: string;
+  modIds: number[];
 }

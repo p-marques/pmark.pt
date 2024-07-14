@@ -1,0 +1,8 @@
+@if (modsCollection().length > 0) {
+<div class="content">
+  @for (modGroup of modsCollection(); track modGroup.domainName) { @for (mod of
+  modGroup.modIds; track mod) {
+  <app-mod [domainName]="modGroup.domainName" [modId]="mod" />
+  } }
+</div>
+}
