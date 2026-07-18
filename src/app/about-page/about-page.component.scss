@@ -1,11 +1,30 @@
 :host {
   flex: 1;
   display: flex;
+  flex-direction: column;
 }
 
 article {
   font-size: 2rem;
+  gap: 4rem;
+}
+
+p:first-child {
+  font-size: 1rem;
+  font-style: italic;
+  text-align: right;
+}
+
+article h2 {
+  border-bottom: 1px solid #323239;
+}
+
+article > div {
   gap: 2rem;
+}
+
+article ul > li {
+  padding-bottom: 0.25rem;
 }
 
 a {
