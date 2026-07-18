@@ -1,29 +1,42 @@
-name: Build and Deploy
+name: Azure Static Web Apps CI/CD
 
 on:
   push:
     branches:
       - main
 
+permissions:
+  contents: read
+
 jobs:
-  build_and_deploy_job:
+  build_and_deploy:
+    name: Build and Deploy
     runs-on: ubuntu-latest
-    name: Build and Deploy Job
 
     steps:
-      - uses: actions/checkout@v3
+      - name: Check out repository
+        uses: actions/checkout@v4
         with:
           submodules: true
           lfs: true
 
-      - name: Build and Deploy
-        id: builddeploy
-        uses: Azure/static-web-apps-deploy@v1
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
         with:
-          azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_ICY_WATER_0E5CBDB03 }}
-          repo_token: ${{ secrets.GITHUB_TOKEN }}
-          action: "upload"
+          node-version: "24.15.0"
+          cache: npm
 
-          app_location: "/"
-          api_location: "api"
-          output_location: "dist/pmark-pt-app/browser"
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build application
+        run: npm run build
+
+      - name: Deploy to Azure Static Web Apps
+        env:
+          SWA_CLI_DEPLOYMENT_TOKEN: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_ICY_WATER_0E5CBDB03 }}
+        run: |
+          npx --yes @azure/static-web-apps-cli@2.0.9 deploy \
+            ./dist/pmark-pt-app/browser \
+            --api-location ./api \
+            --env production
