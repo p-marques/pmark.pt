@@ -4,8 +4,9 @@
   "description": "",
   "scripts": {
     "start": "func start",
-    "test": "echo \"No tests yet...\""
+    "test": "node --test mods/index.test.js"
   },
-  "dependencies": {},
-  "devDependencies": {}
+  "dependencies": {
+    "@cacheable/node-cache": "3.1.1"
+  }
 }
