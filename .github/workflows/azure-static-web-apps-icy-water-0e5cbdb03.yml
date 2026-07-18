@@ -32,6 +32,13 @@ jobs:
       - name: Build application
         run: npm run build
 
+      - name: Verify Azure Static Web Apps configuration
+        run: >-
+          node -e "const config = require('./dist/pmark-pt-app/browser/staticwebapp.config.json');
+          if (config.platform?.apiRuntime !== 'node:22')
+          throw new Error('Expected platform.apiRuntime to be node:22; received ' +
+          JSON.stringify(config.platform?.apiRuntime));"
+
       - name: Deploy to Azure Static Web Apps
         env:
           SWA_CLI_DEPLOYMENT_TOKEN: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_ICY_WATER_0E5CBDB03 }}
@@ -39,4 +46,7 @@ jobs:
           npx --yes @azure/static-web-apps-cli@2.0.9 deploy \
             ./dist/pmark-pt-app/browser \
             --api-location ./api \
+            --swa-config-location ./dist/pmark-pt-app/browser \
+            --api-language node \
+            --api-version 22 \
             --env production
