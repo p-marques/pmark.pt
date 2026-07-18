@@ -4,11 +4,10 @@ import { injectQuery } from '@tanstack/angular-query-experimental';
 import { NexusMod } from '../../core/nexus-mods';
 
 @Component({
-  selector: 'app-mod',
-  standalone: true,
-  imports: [],
-  templateUrl: './mod.component.html',
-  styleUrl: './mod.component.scss',
+    selector: 'app-mod',
+    imports: [],
+    templateUrl: './mod.component.html',
+    styleUrl: './mod.component.scss'
 })
 export class ModComponent {
   private modsService = inject(ModsService);

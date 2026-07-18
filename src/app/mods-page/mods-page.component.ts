@@ -4,11 +4,10 @@ import { injectQuery } from '@tanstack/angular-query-experimental';
 import { ModComponent } from "./mod/mod.component";
 
 @Component({
-  selector: 'app-mods-page',
-  standalone: true,
-  imports: [ModComponent],
-  templateUrl: './mods-page.component.html',
-  styleUrl: './mods-page.component.scss',
+    selector: 'app-mods-page',
+    imports: [ModComponent],
+    templateUrl: './mods-page.component.html',
+    styleUrl: './mods-page.component.scss'
 })
 export class ModsPageComponent {
   private modsService = inject(ModsService);
