@@ -1,26 +1,43 @@
 :host {
-  height: calc(100% - var(--header-height));
-  margin-top: var(--header-height);
+  --app-menu-edge-spacing: 1rem;
+  --app-menu-item-height: 4.125rem;
+  --app-page-padding: 3rem;
+
+  display: block;
+  position: relative;
+  height: 100vh;
+  height: 100dvh;
   width: 100%;
 }
 
 main {
-  padding: 3rem;
+  padding: var(--app-page-padding);
+  padding-bottom: calc(
+    var(--app-menu-item-height) + var(--app-menu-edge-spacing) +
+      var(--app-menu-edge-spacing) + env(safe-area-inset-bottom)
+  );
   height: 100%;
 }
 
 .content-wrapper {
+  flex: 1;
+  min-height: 0;
   overflow-y: auto;
-  height: 100%;
+  height: auto;
   width: 100%;
-  padding: 3rem;
+  padding: var(--app-page-padding);
+  border-inline-end: 0.5rem solid transparent;
   background-color: var(--background-primary-darker);
   border-radius: var(--border-radius-base);
 }
 
+.content-wrapper::-webkit-scrollbar-track {
+  margin-block: 0.5rem;
+}
+
 @media only screen and (max-width: 959.98px) {
-  main,
-  .content-wrapper {
-    padding: 1rem;
+  :host {
+    --app-menu-item-height: 2.75rem;
+    --app-page-padding: 1rem;
   }
 }

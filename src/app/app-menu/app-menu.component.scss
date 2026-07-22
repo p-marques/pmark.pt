@@ -1,0 +1,70 @@
+:host {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  z-index: 10;
+  width: 24rem;
+  padding-bottom: calc(
+    var(--app-menu-edge-spacing) + env(safe-area-inset-bottom)
+  );
+  transform: translateX(-50%);
+}
+
+.menu ul {
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+  width: 100%;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.menu li {
+  flex: 1;
+  display: flex;
+  min-width: 0;
+}
+
+.menu a {
+  flex: 1;
+  padding: 1.125rem 0.75rem;
+  background-color: rgb(242 242 242 / 18%);
+  border-radius: 9999px;
+  font-size: 1.5rem;
+  font-weight: 500;
+  line-height: 1.875rem;
+  text-align: center;
+  transition: background-color 0.25s ease-out;
+}
+
+.menu a:hover,
+.menu a:focus-visible {
+  background-color: rgb(242 242 242 / 26%);
+}
+
+.menu a:focus-visible {
+  outline: 2px solid var(--text-primary);
+  outline-offset: 3px;
+}
+
+.menu a.active {
+  background-color: rgb(242 242 242 / 34%);
+}
+
+@media only screen and (max-width: 959.98px) {
+  :host {
+    right: 0;
+    left: 0;
+    width: 100%;
+    padding: 0 1rem
+      calc(var(--app-menu-edge-spacing) + env(safe-area-inset-bottom));
+    transform: none;
+  }
+
+  .menu a {
+    padding: 0.75rem 0.5rem;
+    font-size: 1rem;
+    line-height: 1.25rem;
+  }
+}
