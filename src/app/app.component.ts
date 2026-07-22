@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { HeaderComponent } from './header/header.component';
+import { AppMenuComponent } from './app-menu/app-menu.component';
 import { RouterOutlet } from '@angular/router';
 
 
@@ -7,6 +7,6 @@ import { RouterOutlet } from '@angular/router';
     selector: 'app-root',
     templateUrl: './app.component.html',
     styleUrl: './app.component.scss',
-    imports: [RouterOutlet, HeaderComponent]
+    imports: [RouterOutlet, AppMenuComponent]
 })
 export class AppComponent { }
