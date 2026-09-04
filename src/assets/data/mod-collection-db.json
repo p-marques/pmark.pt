@@ -8,6 +8,10 @@
       "modIds": [1738,1643,1203,1182,1092,982,981,967,856,582,314]
   },
   {
+	  "domainName": "7daystodie",
+	  "modIds": [12414]
+  },
+  {
       "domainName": "witcher2",
       "modIds": [661,659]
   }
